@@ -5,9 +5,9 @@ public class HelloWorld {
 		String infile = "PDF/EDA16";
 		String outfile = "data/histogram_eda16.txt";
 		Exam exam = new Exam(infile);
-		Histogram hist = new Histogram(exam);
-		ArrayList<String> exercises = getExcercises(exam.getString());
-		TextFileConverter converter = new TextFileConverter(hist, outfile);
+//		Histogram hist = new Histogram(exam);
+		ArrayList<String> exercises = exam.parseExercises();
+		System.out.println(exercises.get(1));
+//		TextfileConverter converter = new TextfileConverter(hist, outfile);
 	}
-		
 }
