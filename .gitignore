@@ -2,4 +2,6 @@
 /InfoExtract/.idea
 
 /bin/
-
+.vscode/
+pdfs/*.pdf
+links_to_pdfs.txt
