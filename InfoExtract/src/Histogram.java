@@ -37,12 +37,6 @@ public class Histogram {
 		string.replace(";","");
 		string.replace("+","");
 		string.replace("-","");
-		string.replace("a)","");
-		string.replace("b)","");
-		string.replace("c)","");
-		string.replace("d)","");
-		string.replace("e)","");
-		string.replace("f)","");
 		string.replace("(","");
 		string.replace(")","");
 		
@@ -50,12 +44,13 @@ public class Histogram {
 		String[] listOfExams = string.split(" ");
 		for(String word: listOfExams){
 			
-			
-			int n = histogram.getOrDefault(word, 0); // Kollar värdet för word, sätter detta
-												// till n. Om word inte finns sätts n
-												// till 0
-			n++;
-			histogram.put(word, n);
+			if(word.length() <= 1){
+				int n = histogram.getOrDefault(word, 0); // Kollar värdet för word, sätter detta
+													// till n. Om word inte finns sätts n
+													// till 0
+				n++;
+				histogram.put(word, n);
+			}
 		}
 	}
 	
