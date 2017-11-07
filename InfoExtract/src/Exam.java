@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Exam {
 	private String body;
@@ -14,5 +16,26 @@ public class Exam {
 	
 	private void stripBreaks(){
 		this.body = this.body.replace("\n", " ").replace("\r", " ");
+	}
+	
+	public ArrayList<String> parseExercises(){
+		ArrayList<String> exercises = new ArrayList<String>();
+		boolean break_loop = false;
+		int start = body.indexOf("1" + ". ");
+		int end;
+		for(int i = 1; i < 10; i++){
+			String index = "" + (i + 1) + ". ";
+			end = body.indexOf(index);
+			if(end == -1){
+				end = body.length()-1;
+				break_loop = true;
+			}
+			exercises.add(body.substring(start+3, end));
+			start = end;	
+			if(break_loop){
+				break;
+			}
+		}
+		return exercises;
 	}
 }
