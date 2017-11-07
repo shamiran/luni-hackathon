@@ -1,58 +1,34 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Histogram {
-	private HashMap<String, Integer> histogram;
+
+	private Map<String, Integer> histogram;
 	
-	
-	public Histogram(Exam exam){
-		histogram = new HashMap<String, Integer>();
-		readExam(exam);	
+	public Histogram(String exams){
+		histogram = new TreeMap<String, Integer>();
+		readExams(exams);
 	}
 	
-	public HashMap<String, Integer> getMap(){
+	public Map<String, Integer> getMap(){
 		return histogram;
 	}
 	
-	private void readExam(Exam exam){
-		String string = exam.getString();
-		string.toLowerCase();
-		
-		string.replace(".","");
-		string.replace(",","");
-		string.replace("!","");
-		string.replace("?","");
-		string.replace("0","");
-		string.replace("1","");
-		string.replace("2","");
-		string.replace("3","");
-		string.replace("4","");
-		string.replace("5","");
-		string.replace("6","");
-		string.replace("7","");
-		string.replace("8","");
-		string.replace("9","");
-		string.replace("0","");
-		string.replace(":","");
-		string.replace(";","");
-		string.replace("+","");
-		string.replace("-","");
-		string.replace("(","");
-		string.replace(")","");
-		
-		
-		String[] listOfExams = string.split(" ");
-		for(String word: listOfExams){
+	private void readExams(String exams){
+		String feed = exams.toLowerCase();
+		String[] wordList = feed.split(" ");
+		for(String word: wordList){
 			
-			if(word.length() <= 1){
-				int n = histogram.getOrDefault(word, 0); // Kollar värdet för word, sätter detta
-													// till n. Om word inte finns sätts n
+			if(word.length() > 5 && word.matches("^[a-z]+$")){
+				int n = histogram.getOrDefault(word, 0); // Kollar vï¿½rdet fï¿½r word, sï¿½tter detta
+													// till n. Om word inte finns sï¿½tts n
 													// till 0
 				n++;
 				histogram.put(word, n);
 			}
 		}
 	}
-	
 }
 

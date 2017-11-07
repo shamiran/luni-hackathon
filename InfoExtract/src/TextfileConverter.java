@@ -1,12 +1,13 @@
 import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class TextfileConverter {
 
 	TextfileConverter(Histogram hist, String filename) {
 		
-		HashMap<String,Integer> hm = hist.getMap();
+		Map<String,Integer> hm = hist.getMap();
 		
 		String str = iterateMap(hm);
 		
@@ -14,11 +15,10 @@ public class TextfileConverter {
 		
 	}
 	
-	private String iterateMap(HashMap<String,Integer> hm) {
+	private String iterateMap(Map<String,Integer> hm) {
 		String str = "";
 		
-		for (Entry<String, Integer> entry : hm.entrySet())
-		{
+		for (Entry<String, Integer> entry : hm.entrySet()) {
 		    str = str + entry.getKey() + ";" + entry.getValue() + "\n";
 		}
 		

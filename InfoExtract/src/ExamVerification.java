@@ -15,7 +15,7 @@ public class ExamVerification {
 	}
 	
 	/**
-	 * @return course code if an exam, otherwise -1.
+	 * @return course code if an exam, otherwise an empty string.
 	 */
 	public String verify() {
 		Pattern pat = Pattern.compile(".*exam.*");
@@ -29,7 +29,7 @@ public class ExamVerification {
 		mat = pat.matcher(exam);
 
 		if(!mat.find()) {
-			return "-1";
+			return "";
 		}
 		
 		return mat.group();

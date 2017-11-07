@@ -1,14 +1,18 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class HelloWorld {
 	public static void main(String[] args) throws IOException{
-		String infile = "/home/jonis/git/luni-hackathon/exams/edan55/edan55-2013-10-25.pdf";
 		String outfile = "histogram_eda16.txt";
-		Exam exam = new Exam(infile);
-		Histogram hist = new Histogram(exam);
-		ArrayList<String> exercises = exam.parseExercises();
-		System.out.println(exercises.get(1));
-		TextfileConverter converter = new TextfileConverter(hist, outfile);
+
+        ArrayList<String> fileNames = new PathExtractor("/home/jonis/git/luni-hackathon/exams/edan55").getExams();
+        StringBuilder sb = new StringBuilder();
+        for (String s : fileNames) {
+            sb.append(new PDFParser(new File(s)));
+        }
+        String exams = sb.toString();
+		Histogram hist = new Histogram(exams);
+		new TextfileConverter(hist, outfile);
 	}
 }
