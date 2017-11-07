@@ -8,7 +8,6 @@ public class HelloWorld {
 		Exam exam = new Exam(infile);
 		Histogram hist = new Histogram(exam);
 		ArrayList<String> exercises = exam.parseExercises();
-		System.out.println(exercises.get(1));
 		TextfileConverter converter = new TextfileConverter(hist, outfile);
 	}
 }
