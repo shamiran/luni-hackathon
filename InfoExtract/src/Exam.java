@@ -12,7 +12,7 @@ public class Exam {
 
 	public Exam(String filepath) throws IOException{
         PDDocument doc = PDDocument.load(new File(filepath));
-        body = new PDFTextStripper().getText(doc);
+        body = new PDFTextStripper().getText(doc).toLowerCase();
 		this.filepath = filepath;
 	}
 	
