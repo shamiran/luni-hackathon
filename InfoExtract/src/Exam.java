@@ -1,3 +1,8 @@
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -5,9 +10,10 @@ public class Exam {
 	private String body;
 	private String filepath;
 
-	public Exam(String filepath){
+	public Exam(String filepath) throws IOException{
+        PDDocument doc = PDDocument.load(new File(filepath));
+        body = new PDFTextStripper().getText(doc).toLowerCase();
 		this.filepath = filepath;
-		this.body = "1. Show that the process, 1 t e−cs dWs ,where c is a positive constant and where Wt is a standard Brownian motion, is a martingale for X(t) = exp −4c(1 − e−2ct) 2. Your bank offers you a derivative called a iron condor. The derivative has maturity T and the t ≥ 0.";
 	}
 	
 	public String getString(){
