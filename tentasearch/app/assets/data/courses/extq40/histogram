@@ -1,0 +1,6 @@
+{ 	"integral" 		: 100,
+	"cat"			: 2,
+	"derivative" 	: 50,
+	"log"			: 40,
+	"and" 			: 101
+}
