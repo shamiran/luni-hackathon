@@ -11,4 +11,8 @@ public class Exam {
 	public String getString(){
 		return this.body;
 	}
+	
+	private void stripBreaks(){
+		this.body = this.body.replace("\n", " ").replace("\r", " ");
+	}
 }
