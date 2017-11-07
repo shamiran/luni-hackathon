@@ -23,3 +23,7 @@ tmp/
 
 .byebug_history
 /tentasearch/vendor
+
+.vscode/
+pdfs/*.pdf
+links_to_pdfs.txt
